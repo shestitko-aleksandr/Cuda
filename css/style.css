@@ -50,36 +50,53 @@ ul li{
 	list-style: none;
 }
 section{
-	padding: 0px 150px;
 	clear: both;
 }
-/* Layout
-----------------------------------*/	
-.page-container {
+.section-wrapper{
 	width: 1440px;
-	/*min-width: 1440px;
-	max-width: 75%;для больших мониторов?*/
+	padding: 80px 150px 80px 150px;
 	margin: 0 auto;
+	text-align: center;
 }
+.article-wrapper{
+	text-align: center;
+}
+/* Layout----------------------------------*/	
 .wellcome{
   background-color: rgb(135, 80, 156);
-	padding-top: 57px;
-	padding-bottom: 146px;
 }
-.wellcome .logo {
-	float:left;
+header{
+	background-color: rgb(135, 80, 156);
+}
+header .section-wrapper{
+	margin: 0px auto 0px auto;
+	width: 1440px;
+	padding: 50px 150px 0px 150px;
+}
+header .logo {
 	height: 37px;
 	width: 118px;
 	background: url("../images/layout/logo.png") no-repeat;
+	float: left;
 }
-.wellcome nav ul li a {
+.section-wrapper:after{
+		/*clear: both;*/
+}
+.header nav ul li a {
 	display: block;
 }
-.wellcome nav {
-	float: right;
+.header nav {
+	height: 50px;
+	/*float: right;*/
+	position: relative;
+	left: 800px;
 	padding-top: 10px;
+	
 }
-.wellcome nav a {
+.header nav:after{
+	clear: both;
+}
+.header nav a {
 	font-size: 16px;
   color: rgb(255, 255, 255);
 	text-align: center;
@@ -88,16 +105,26 @@ section{
 	border-radius: 4px;
 	text-shadow: 0.5px 0.866px 1px rgba(6, 6, 6, 0.27);
 }
-.wellcome nav a:hover{
+.header nav a:hover{
 	border-radius: 4px;
   background-color: rgb(100, 58, 121);
 }
-.wellcome nav li {
+.header nav li {
 	display:  inline-block;
 	float: left;
+	position: relative;
 }
-.wellcome .hi {
-  margin: 145px 0px 60px 0px;
+#top-menu ul{
+	position: absolute;
+	left: -9999px;
+	opacity: 0;
+}
+#top-menu li:hover ul{
+	left: 0;
+	opacity: 1;
+}
+.wellcome p{
+  margin: 0px 0px 60px 0px;
 	clear: both;
   font-size: 36px;
   color: rgb(247, 243, 234);
@@ -105,28 +132,31 @@ section{
   line-height: 1.158;
   text-align: center;
 }
-.wellcome .button a{
-	display: block;
+.wellcome .button {
+	color: rgb(255, 255, 255);
+  background-color: rgb(235, 125, 75);
+	box-shadow: 0px 5px #c86a40;
+}
+.wellcome .button:hover{
+	background-color: rgb(235, 125, 50);
+}
+.button {
+	display: inline-block;
 	margin: 0 auto;
-	height: 50px;
-	width: 293px;
+	max-width: 500px;
   font-size: 20px;
-  color: rgb(255, 255, 255);
-  padding-top: 15px;
+	padding: 25px 70px;
   font-weight: bold;
   line-height: 1.455;
   text-align: center;
   border-radius: 4px;
-  background-color: rgb(235, 125, 75);
-  box-shadow: 0px 5px #c86a40;
-}
-.button {
+	overflow: hidden;
+	white-space: nowrap;
 }
 .services {
 	padding-top: 80px;
 	padding-bottom: 80px;
   background-color: rgb(23, 194, 164);
-	/*height: 747px;*/
 }
 .services h1{
  color: rgb(255, 255, 255);
@@ -138,10 +168,6 @@ section{
 	color: rgb(255, 255, 255);
 	line-height: 1.444;
 	text-align: center;
-}
-.line {
-  display: block;
-  margin: 0px auto;
 }
 .services article {
 	display: inline-block;
@@ -167,6 +193,8 @@ section{
 }
 .services article figure img{
   margin: 0 auto;
+	max-height: 200px;
+	max-width: 200px;
 }
 .team {
 	background-color: rgb(231, 241, 248);
@@ -218,11 +246,38 @@ section{
 .team article social img {
 	margin: 35px 5px 0 5px;
 }
+.social div{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-color: rgb(189, 209, 223);
+	border-radius: 50%;
+}
+.social div:hover{
+	background-color: #6086A1;
+}
+.social .facebook{
+	background-image: url("../images/layout/facebook.png");
+	max-height: 32px;
+	max-width: 32px;
+}
+.social .twitter{
+	background-image: url("../images/layout/twitter.png");
+	max-height: 32px;
+	max-width: 32px;
+}
+.social .linkedin{
+	background-image: url("../images/layout/linkedin.png");
+	max-height: 32px;
+	max-width: 32px;
+}
+.social .email{
+	background-image: url("../images/layout/email.png");
+	max-height: 32px;
+	max-width: 32px;
+}
 .skills {
 	background-color: rgb(255, 255, 255);
-	/*height: 655px;*/
-	padding-top: 120px;
-	padding-bottom: 80px;
 }
 .skills h1 {
 	color: rgb(60, 71, 97);
@@ -243,10 +298,22 @@ section{
 	padding: 0px 0px;
 	text-align: center;
 }
-.skills article figure img {
+.skills article p{
+	display: block;
+	margin: 0 auto;
+	border: solid 15px grey;
 	border-radius: 100px;
-	max-height: 200px;
-	max-width: 200px;
+	height: 130px;
+	width: 130px;
+  font-size: 43px;
+  text-align: center;
+  color: rgb(60, 71, 97);
+  text-transform: uppercase;
+  line-height: 2.9;
+}
+.skills article p:after{
+	content: "%";
+	font-size: 28px;
 }
 .skills article figure h2 {
   font-size: 24px;
@@ -257,9 +324,6 @@ section{
 }
 .portfolio {
 	background-color: rgb(255, 221, 153);
-	padding-top: 120px;
-	padding-bottom: 80px;
-	text-align: center;
 }
 .portfolio h1 {
 	color: rgb(57, 57, 57);
@@ -289,8 +353,13 @@ section{
 }
 .portfolio nav a:hover{
 	border-radius: 4px;
-  background-color: rgb(100, 58, 121);
-  background-color: rgb(255, 255, 255);
+	background-color: rgb(100, 58, 121);
+	background-color: rgb(255, 255, 255);
+}
+.portfolio nav a.active{
+	border-radius: 4px;
+	background-color: rgb(100, 58, 121);
+	background-color: rgb(255, 255, 255);
 }
 .portfolio nav li {
 	display:  inline-block;
@@ -308,6 +377,17 @@ section{
 	padding-right: 0px;
 	display: inline-block;
 }
+.portfolio .comp{
+	width: 541px;
+	height: 311px;
+	background-image: url("../images/layout/comp.png");
+	position: relative;
+}
+.portfolio .comp-screen{
+	position: absolute;
+	left: 64px;
+	top: 18px;
+}
 .portfolio h3{
   font-size: 18px;
   color: rgb(57, 57, 57);
@@ -315,20 +395,47 @@ section{
   line-height: 1.083;
 	margin-top: 28px;
 }
-.portfolio .button a{
+.category{
+	display: none;
+	margin-bottom: 70px;
+}
+#all{
 	display: block;
-	margin: 0px auto;
-  font-size: 20px;
-  color: rgb(255, 255, 255);
-  padding: 25px 30px 25px 20px;
-  margin-top: 70px;
-  font-weight: bold;
-  line-height: 1.455;
-  text-align: center;
-  box-shadow: 0px 5px #14a58c;
-	border-radius: 4px;
-  background-color: rgb(23, 194, 164);
-	width: 293px;
+}
+div:target {
+  display: block;
+}
+div[id*=web]:target {
+  display: block;
+}
+div[id*=w]:target ~ #web {
+  display: block;
+}
+div[id*=web]:target ~ #all {
+  display: none;
+}
+div[id*=apps]:target ~ #all {
+  display: none;
+}
+/*div[id*=all]:target ~ #web {
+  display: none;
+}
+div[id*=all]:target ~ #apps {
+  display: none;
+}
+div[id*=apps]:target ~ #web {
+  display: none;
+}*/
+div[id*=icons]:target ~ #all {
+  display: none;
+}
+.portfolio .button{
+	color: rgb(255, 255, 255);
+	background-color: rgb(23, 194, 164);
+		box-shadow: 0px 5px #14a58c;
+}
+.portfolio .button:hover{
+	background-color: #07b596;
 }
 .testimonials {
 	background-color: rgb(215, 70, 128);
@@ -355,6 +462,8 @@ section{
 	float: left;
   border-radius: 50%;
   background-color: rgb(120, 120, 120);
+	width: 96px;
+  height: 96px;
   max-width: 96px;
   max-height: 96px;
   margin: 0 50px 0 0;
@@ -417,17 +526,18 @@ section{
   text-align: left;
 	margin-top: 80px;
 }
-.name{
+.contact-name{
 	float: left;
 }
-.email{
+.contact-email{
 	float: right;
 }
 .get-in-touch form textarea{
 	background-color: rgb(39, 58, 113);
-	margin-top: 27px;
+	margin: 27px auto;
 	border: none;
-	width: 810px;
+	width: 820px;
+	resize: vertical;
   height: 150px;
 	border-radius: 4px;
 	font-size: 18px;
@@ -443,7 +553,13 @@ section{
 #pusher{
 	 display:none;
 }
-.feedback label{
+.feedback .button{
+	
+	color: rgb(255, 255, 255);
+	background-color: rgb(48, 186, 231);
+  box-shadow: 0px 5px #299ec5;
+}
+/*.feedback label{
 	display: block;
 	margin: 60px auto;
 	height: 50px;
@@ -462,9 +578,12 @@ section{
 	display: block;
 	height: 50px;
 	width: 293px;
-}
+}*/
 .social-footer{
   background-color: rgb(52, 75, 142);
+}
+.social-footer .section-wrapper{
+	padding: 0px 150px;
 }
 .links ul li a {
 	display: block;
